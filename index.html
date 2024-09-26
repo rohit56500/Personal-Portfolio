@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="#home">My Portfolio</a></h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Hi, I’m <span class="highlight">Rohit bhagat</span></h2>
+        <h3>A Creative <span class="highlight">Web Developer</span></h3>
+        <p>I create innovative, responsive websites using cutting-edge technology.</p>
+        <a href="#projects" class="btn primary-btn">View My Work</a>
+      </div>
+      <div class="hero-image">
+        <img src="my imagee.jpeg" alt="Hero Image">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I’m a highly motivated and passionate web developer with a strong background in front-end and back-end development. I specialize in building high-quality web applications with clean, modern designs.
+          </p>
+          <p>
+            My tech stack includes HTML, CSS, JavaScript, React, Node.js, and more. I'm constantly improving my skills and learning new technologies to stay on top of industry trends.
+          </p>
+          <a href="#contact" class="btn secondary-btn">Get In Touch</a>
+        </div>
+        <div class="about-image">
+          <img src="my image.jpeg" alt="About Me Image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>My Projects</h2>
+      <div class="grid">
+        <div class="project">
+          <img src="photo1.jpeg" alt="Student Profile System">
+          <h3>Student Profile System</h3>
+          <p>Developed a comprehensive student profile management system using Python. The system includes features for enrollment tracking, academic performance monitoring, and automated notifications.</p>
+          <a href="https://github.com/rohit56500/Student-profile-management-system.git" class="btn secondary-btn">View Project</a>
+        </div>
+        <div class="project">
+          <img src="photo2.jpg" alt="Dynamic Website">
+          <h3>Dynamic Website</h3>
+          <p>Created a dynamic website using HTML, CSS, and JavaScript. The site includes various interactive features and real-time data integration to enhance user experience.</p>
+          <a href="https://github.com/rohit56500/Dynamic-Website.git" class="btn secondary-btn">View Project</a>
+        </div>
+        <div class="project">
+          <img src="photo3.avif" alt="Invoice Management System">
+          <h3>Invoice Management System</h3>
+          <p>Built an advanced invoice management system using C++. The system allows users to create, track, and manage invoices, with features for automated billing, reporting, and analytics.</p>
+          <a href="https://github.com/rohit56500/Invoices-system.git" class="btn secondary-btn">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <!-- Skills Section -->
+<section id="skills" class="skills">
+    <div class="container">
+      <h2>My Skills</h2>
+      <div class="skills-grid">
+        <div class="skill">
+          <h3>Python</h3>
+          <p>Proficient in Python, with experience in web development (Django, Flask), data analysis, and automation.</p>
+        </div>
+        <div class="skill">
+          <h3>HTML & CSS</h3>
+          <p>Expert in building responsive, semantic websites with modern HTML5 standards and CSS3 features, including Flexbox and Grid for layouts.</p>
+        </div>
+        <div class="skill">
+          <h3>JavaScript</h3>
+          <p>Proficient in vanilla JavaScript and frameworks like React and Node.js, building dynamic, interactive user interfaces.</p>
+        </div>
+        <div class="skill">
+          <h3>C++</h3>
+          <p>Strong grasp of C++ for performance-critical applications, object-oriented programming, and competitive coding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.</p>
+      <form action="" class="contact_form"  id="contact-form">
+        <div class="form-group">
+          <input type="text" name="user_name" id="name" placeholder="Enter Your Name" class="form-control"  required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="user_email" id="email" placeholder="Your Email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <textarea name="user_project" required placeholder="Enter your message" class="contact_input"></textarea>
+          <p class="contact_message" id="contact-message"></p>
+          <button type="submit" class="button contact_button">
+              Send Message
+          </button>
+      </form>
+    </div>
+  </section>
+  <script src="https://smtpjs.com/v3/smtp.js"> </script>
+  
+  <script> 
+   const contactForm = document.getElementById('contact-form'),
+      contactMessage = document.getElementById('contact-message')
+
+const sendEmail = (e) => {
+    e.preventDefault()
+    emailjs.sendForm('service_4h7fftk', 'template_hdppj39', '#contact-form', 'Ei8H70XYLSdPWrpRP')
+    .then(() => {
+        contactMessage.textContent = 'Message sent successfully ✅'
+    }, () => {
+        contactMessage.textContent = 'Message not sent (service error) 🤦‍♂'
+    })
+}
+contactForm.addEventListener('submit', sendEmail)
+
+  </script>
+  
+ 
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2024 <span> Rohit Bhagat.</span> All rights reserved.</p>
+        <div class="social-media">
+          <a href="https://www.facebook.com/yourusername" target="_blank" class="social-link" >
+            <img src="facebook.png" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/rohit_bhagat123?igsh=YTJkczIzemN1djdp" target="_blank" class="social-link">
+            <img src="insta.webp" alt="Instagram">
+          </a>
+          <a href="https://github.com/rohit56500" target="_blank" class="social-link">
+            <img src="github.png" alt="GitHub">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+</body>
+</html>
